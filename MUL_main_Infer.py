@@ -77,9 +77,10 @@ if __name__ == '__main__':
             f_out = "./output/"+filename.split('.txt')[0]
             data['tokens'] = input_sentences
             data['edus'] = all_segmentation_pred
-            json_string = json.dumps(data)
+            data['rels'] = all_tree_parsing_pred
+            #json_string = json.dumps(data)
             with codecs.open(f_out+'.json', 'w', encoding='utf-8') as outfile:
-                json.dump(json_string, outfile, ensure_ascii=False)
+                json.dump(data, outfile, ensure_ascii=False)
             #f.close()
     #Test_InputSentences = open("./data/text_for_inference.txt").readlines()
 
